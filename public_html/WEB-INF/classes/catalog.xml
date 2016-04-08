@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<catalog-values>
+ <db>
+  <sql>
+   <insert>
+    <ucladb>insert into ucladb.wopac_pid_patron_keys(pid, patron_key) values(?,?)</ucladb>
+    <ethnodb>insert into ethnodb.wopac_pid_patron_keys(pid, patron_key) values(?, ?)</ethnodb>
+    <filmntvdb>insert into filmntvdb.wopac_pid_patron_keys(pid, patron_key) values(?, ?)</filmntvdb>
+   </insert>
+   <delete>
+    <ucladb>delete from ucladb.wopac_pid_patron_keys where pid = ? or patron_key = ?</ucladb>
+    <ethnodb>delete from ethnodb.wopac_pid_patron_keys where pid = ? or patron_key = ?</ethnodb>
+    <filmntvdb>delete from filmntvdb.wopac_pid_patron_keys where pid = ? or patron_key = ?</filmntvdb>
+   </delete>
+   <select>
+    <ucladb>select count(pid) from ucladb.wopac_pid_patron_keys where pid = ? or patron_key = ?</ucladb>
+    <ethnodb>select count(pid) from ethnodb.wopac_pid_patron_keys where pid = ? or patron_key = ?</ethnodb>
+    <filmntvdb>select count(pid) from filmntvdb.wopac_pid_patron_keys where pid = ? or patron_key = ?</filmntvdb>
+    <patronid>select count(patron_id) from ucladb.patron where institution_id = ?</patronid>
+   </select>
+  </sql>
+  <source>
+   java:/butlerDS
+   <test>java:/butlerDS</test>
+   <prod>java:/isisDS</prod>
+  </source>
+ </db>
+ <app>
+  <catalog>
+   <badcredential>000000000</badcredential>
+  </catalog>
+ </app>
+ <requester>
+  <forward_url>/cgi-bin/Pwebrecon.cgi?</forward_url>
+  <catalog>
+   <type>
+    <ucla>1</ucla>
+    <ethno>2</ethno>
+    <filmntv>3</filmntv>
+   </type>
+   <name>
+    <ucla>catalog</ucla>
+    <ethno>catalogeth</ethno>
+    <filmntv>catalogcin</filmntv>
+   </name>
+  </catalog>
+ </requester>
+ <url>
+  <redirect>https://webservices.library.ucla.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fwebservices.library.ucla.edu%2Fcatalog%2Floginhandler</redirect>
+  <logout>https://webservices.library.ucla.edu/Shibboleth.sso/Logout?return=https%3A%2F%2Fshb.ais.ucla.edu%2Fshibboleth-idp%2FLogout%26entityId%3Dhttps%3A%2F%2Fwebservices.library.ucla.edu%2Fcatalog%2Fshibboleth-sp</logout>
+ </url>
+</catalog-values>

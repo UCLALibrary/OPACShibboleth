@@ -1,0 +1,174 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee">
+  <description>Empty web.xml file for Web Application</description>
+<!-- db specific values -->
+  <context-param>
+    <param-name>db.sql.insert.ucladb</param-name>
+    <param-value>insert into ucladb.wopac_pid_patron_keys(pid, patron_key) values(?, ?)</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.delete.ucladb</param-name>
+    <param-value>delete from ucladb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.select.ucladb</param-name>
+    <param-value>select count(pid) from ucladb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.insert.ethnodb</param-name>
+    <param-value>insert into ethnodb.wopac_pid_patron_keys(pid, patron_key) values(?, ?)</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.delete.ethnodb</param-name>
+    <param-value>delete from ethnodb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.select.ethnodb</param-name>
+    <param-value>select count(pid) from ethnodb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.insert.filmntvdb</param-name>
+    <param-value>insert into filmntvdb.wopac_pid_patron_keys(pid, patron_key) values(?, ?)</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.delete.filmntvdb</param-name>
+    <param-value>delete from filmntvdb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.select.filmntvdb</param-name>
+    <param-value>select count(pid) from filmntvdb.wopac_pid_patron_keys where pid = ? or patron_key = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.sql.select.patronid</param-name>
+    <param-value>select count(patron_id) from ucladb.patron where institution_id = ?</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.source</param-name>
+    <!--param-value>java:/isisDS</param-value-->
+    <param-value>jdbc/isisDS</param-value>
+    <!--param-value>java:/butlerDS</param-value-->
+  </context-param>
+  <context-param>
+    <param-name>db.source.test</param-name>
+    <!--param-value>java:/butlerDS</param-value-->
+    <!--param-value>java:/collinsDS</param-value-->
+    <param-value>jdbc/collinsDS</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.source.exp</param-name>
+    <!--param-value>java:/butlerDS</param-value-->
+    <param-value>java:/wellsDS</param-value>
+  </context-param>
+  <context-param>
+    <param-name>db.source.prod</param-name>
+    <!--param-value>java:/isisDS</param-value-->
+    <param-value>jdbc/isisDS</param-value>
+  </context-param>
+<!-- app specific values -->
+<!-- remove the /cgi-bin and /vwebv from next 2 params -->
+  <context-param>
+    <param-name>requester.forward_url</param-name>
+    <param-value>/Pwebrecon.cgi?</param-value>
+    <!--param-value>/cgi-bin/Pwebrecon.cgi?</param-value-->
+  </context-param>
+  <context-param>
+    <param-name>requester.forward_url.tomcat</param-name>
+    <param-value>/externalLogin.do?</param-value>
+    <!--param-value>/vwebv/externalLogin.do?</param-value-->
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.type.ucla</param-name>
+    <param-value>1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.type.ethno</param-name>
+    <param-value>2</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.type.filmntv</param-name>
+    <param-value>3</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.name.ucla</param-name>
+    <param-value>catalog</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.name.ethno</param-name>
+    <param-value>catalogeth</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.name.filmntv</param-name>
+    <param-value>catalogcin</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.test</param-name>
+    <param-value>cattest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.tomcat</param-name>
+    <param-value>cattest</param-value>
+  </context-param>
+  <context-param>
+    <param-name>requester.catalog.exp</param-name>
+    <param-value>catexp</param-value>
+  </context-param>
+  <context-param>
+    <param-name>app.catalog.badcredential</param-name>
+    <param-value>000000000</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>StartServlet</servlet-name>
+    <servlet-class>shibboleth.StartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShibRouterServlet</servlet-name>
+    <servlet-class>edu.ucla.library.libservices.security.shibboleth.web.ShibRouterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginHandlerServlet</servlet-name>
+    <servlet-class>edu.ucla.library.libservices.security.shibboleth.web.LoginHandlerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogoutHandlerServlet</servlet-name>
+    <servlet-class>edu.ucla.library.libservices.security.shibboleth.web.LogoutHandlerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StartServlet</servlet-name>
+    <url-pattern>/startservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShibRouterServlet</servlet-name>
+    <url-pattern>/shibrouter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginHandlerServlet</servlet-name>
+    <url-pattern>/loginhandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutHandlerServlet</servlet-name>
+    <url-pattern>/logouthandler</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>35</session-timeout>
+  </session-config>
+  <mime-mapping>
+    <extension>html</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>txt</extension>
+    <mime-type>text/plain</mime-type>
+  </mime-mapping>
+  <resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/collinsDS</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/isisDS</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+</web-app>

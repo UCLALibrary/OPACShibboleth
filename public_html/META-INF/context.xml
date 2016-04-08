@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context>
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <ResourceLink name="jdbc/collinsDS"
+                 global="jdbc/collinsDS"
+                  type="javax.sql.DataSource" />
+    <ResourceLink name="jdbc/isisDS"
+                 global="jdbc/isisDS"
+                  type="javax.sql.DataSource" />
+</Context>

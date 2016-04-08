@@ -1,0 +1,412 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jpr:project xmlns:jpr="http://xmlns.oracle.com/ide/project">
+   <hash n="component-versions">
+      <value n="oracle.adf.dt.migration.ProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.adfdt.controller.jsf.addin.JSFProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.adfdt.controller.struts.addin.db.ADFStrutsProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.adfdt.controller.struts.addin.StrutsProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.bm.commonIde.ProjectUpgrader" v="10.1.3.0.4"/>
+      <value n="oracle.ide.model.Project" v="10.1.3.0.4"/>
+      <value n="oracle.ide.model.ResourcePathsMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jbo.dt.jclient.migrator.JCProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jbo.dt.jdevx.ui.appnav.APProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jdeveloper.dbmodeler.migration.ProjectMigratorHelper" v="10.1.3.0.4"/>
+      <value n="oracle.jdeveloper.offlinedb.migration.OfflineDBProjectMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jdevimpl.jsp.JspMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jdevimpl.runner.RunConfigurationsMigrator" v="10.1.3.0.4"/>
+      <value n="oracle.jdevimpl.webservices.WebServicesMigratorHelper" v="10.1.3.0.4"/>
+      <value n="oracle.toplink.addin.migration.TopLinkProjectMigrator" v="10.1.3.0.4"/>
+   </hash>
+   <list n="contentSets">
+      <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
+      <string v="oracle.ide.model.ResourcePaths/resourcesContentSet"/>
+      <string v="oracle.jdeveloper.offlinedb.model.OfflineDBProjectSettings/offlineDBContentSet"/>
+      <string v="oracle.jdeveloper.model.J2eeSettings/webContentSet"/>
+      <string v="oracle.toplink.addin.TopLinkProjectSettings/toplinkContentSet"/>
+      <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
+      <string v="oracle.jdeveloper.addin.php.PHPSettings/phpContentSet"/>
+   </list>
+   <value n="defaultPackage" v="catalog"/>
+   <hash n="oracle.bm.commonIde.data.project.ModelerProjectSettings">
+      <hash n="modelersContentSet">
+         <list n="url-path">
+            <url path="model/"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+webapp.deploy"/>
+               </list>
+               <list n="url-path">
+                  <url path="deploy/"/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+catalog.properties"/>
+               </list>
+               <list n="url-path">
+                  <url path="public_html/WEB-INF/classes/"/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+*"/>
+               </list>
+               <list n="url-path">
+                  <url path="."/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+context.xml"/>
+               </list>
+               <list n="url-path">
+                  <url path="public_html/META-INF/"/>
+               </list>
+            </hash>
+         </list>
+         <list n="url-path"/>
+      </hash>
+   </hash>
+   <hash n="oracle.ide.model.TechnologyScopeConfiguration">
+      <list n="technologyScope">
+         <string v="Java"/>
+         <string v="JSP"/>
+         <string v="HTML"/>
+         <string v="General"/>
+         <string v="XML"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.addin.php.PHPSettings">
+      <hash n="phpContentSet">
+         <list n="url-path">
+            <url path="public_html/"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <value n="internalEncoding" v="UTF-8"/>
+   </hash>
+   <hash n="oracle.jdeveloper.model.J2eeSettings">
+      <value n="j2eeWebAppName" v="catalog"/>
+      <value n="j2eeWebContextRoot" v="catalog"/>
+      <hash n="webContentSet">
+         <list n="url-path">
+            <url path="public_html/"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.jdeveloper.model.PathsConfiguration">
+      <hash n="javaContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="src/"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.jdeveloper.offlinedb.model.OfflineDBProjectSettings">
+      <hash n="offlineDBContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="database/"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="name" v="Default"/>
+         </hash>
+      </hash>
+      <list n="runConfigurationList">
+         <string v="Default"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdevimpl.config.JProjectLibraries">
+      <list n="exportedReferences">
+         <hash>
+            <value n="id" v="JSP Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Servlet Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/log4j-1.2.15.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/Oracle.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/Spring.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Beanutils 1.6.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Collections 2.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Digester 1.5"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Logging 1.0.3"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.1 Tags"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+      </list>
+      <list n="libraryReferences">
+         <hash>
+            <value n="id" v="JSP Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Servlet Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/log4j-1.2.15.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/Oracle.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../system/oracle.jdeveloper.10.1.3.36.73/Spring.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Beanutils 1.6.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Collections 2.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Digester 1.5"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons Logging 1.0.3"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSTL 1.1 Tags"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+      </list>
+   </hash>
+   <hash n="oracle.jdevimpl.config.JProjectPaths">
+      <url n="outputDirectory" path="public_html/WEB-INF/classes/"/>
+   </hash>
+   <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
+      <hash n="libraries">
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\c.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Core"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL Core"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/c.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/core"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\c-1_0.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Core"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL Core"/>
+            <value n="showInPalette" v="false"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/c-1_0.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/core"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\c-1_0-rt.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Core RT"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL Core RT"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/c-1_0-rt.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/core_rt"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\fmt.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Format"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL Format"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/fmt.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/fmt"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\fmt-1_0.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Format"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL Format"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/fmt-1_0.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/fmt"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\fmt-1_0-rt.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Format RT"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL Format RT"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/fmt-1_0-rt.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/fmt_rt"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\fn.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Functions"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL Functions"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/fn.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/functions"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\permittedTaglibs.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Permitted Taglibs"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL Permitted Taglibs"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/permittedTaglibs.tld"/>
+            <value n="URI" v="http://jakarta.apache.org/taglibs/standard/permittedTaglibs"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\scriptfree.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL Script Free"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL Script Free"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/scriptfree.tld"/>
+            <value n="URI" v="http://jakarta.apache.org/taglibs/standard/scriptfree"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\sql.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL SQL"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL SQL"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/sql.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/sql"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\sql-1_0.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL SQL"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL SQL"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/sql-1_0.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/sql"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\sql-1_0-rt.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL SQL RT"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL SQL RT"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/sql-1_0-rt.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/sql_rt"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\x.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL XML"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.0"/>
+            <value n="name" v="JSTL XML"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/x.tld"/>
+            <value n="URI" v="http://java.sun.com/jsp/jstl/xml"/>
+            <value n="version" v="1.1"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\x-1_0.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL XML"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL XML"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/x-1_0.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/xml"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash n="WEB-INF\lib\standard.jar!\META-INF\x-1_0-rt.tld">
+            <hash n="baseLibrary">
+               <value n="name" v="JSTL XML RT"/>
+               <value n="version" v="1.0"/>
+            </hash>
+            <value n="jspVersion" v="1.2"/>
+            <value n="name" v="JSTL XML RT"/>
+            <value n="tldURL" v="WEB-INF/lib/standard.jar!/META-INF/x-1_0-rt.tld"/>
+            <value n="URI" v="http://java.sun.com/jstl/xml_rt"/>
+            <value n="version" v="1.0"/>
+         </hash>
+      </hash>
+   </hash>
+   <hash n="oracle.toplink.addin.TopLinkProjectSettings">
+      <hash n="toplinkContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="toplink/"/>
+         </list>
+      </hash>
+   </hash>
+</jpr:project>
