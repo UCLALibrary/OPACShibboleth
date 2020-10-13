@@ -1,5 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
   <description>Empty web.xml file for Web Application</description>
 <!-- db specific values -->
   <context-param>
@@ -66,11 +68,10 @@
   </context-param>
 <!-- app specific values -->
 <!-- remove the /cgi-bin and /vwebv from next 2 params -->
-  <context-param>
+  <!--context-param>
     <param-name>requester.forward_url</param-name>
     <param-value>/Pwebrecon.cgi?</param-value>
-    <!--param-value>/cgi-bin/Pwebrecon.cgi?</param-value-->
-  </context-param>
+  </context-param-->
   <context-param>
     <param-name>requester.forward_url.tomcat</param-name>
     <param-value>/externalLogin.do?</param-value>

@@ -59,13 +59,13 @@ public class LoginHandlerServlet
     {
       log.info( "sending to bad credential page because UID = " + userID + 
                 " is not in patrons table" );
-      response.sendRedirect( buildRedirectURL( finder, false ) );
+      response.sendRedirect( buildRedirectURL( finder, false, log ) );
     }
     //else send back to catalog
     else
     {
       handleData( cookies, userID );
-      response.sendRedirect( buildRedirectURL( finder, true ) );
+      response.sendRedirect( buildRedirectURL( finder, true, log ) );
     }
   }
 
@@ -89,22 +89,18 @@ public class LoginHandlerServlet
     }
   }
 
-  private String buildRedirectURL( CookieFinder finder, boolean goodLogin )
+  private String buildRedirectURL( CookieFinder finder, boolean goodLogin, Logger log )
   {
     StringBuffer redirect;
     String[] queryParams;
     boolean first;
-
+    
+    log.info("in LoginHandler, caller URL = " + getCookieValue( finder, "caller" ));
     redirect = new StringBuffer( getCookieValue( finder, "caller" ) );
     queryParams = getCookieValue( finder, "queryString" ).split( "[&=]" );
     first = true;
 
-    /* test here on redirect containing cgi or vwebv */
-    if ( redirect.indexOf( "vwebv" ) != -1 )
-    //if ( redirect.indexOf( getServletContext().getInitParameter( "requester.catalog.tomcat" ) ) != -1 )
-      redirect.append( getServletContext().getInitParameter( "requester.forward_url.tomcat" ) );
-    else
-      redirect.append( getServletContext().getInitParameter( "requester.forward_url" ) );
+    redirect.append( getServletContext().getInitParameter( "requester.forward_url.tomcat" ) );
 
     for ( int i = 0; i < queryParams.length; i += 2 )
     {
@@ -116,6 +112,7 @@ public class LoginHandlerServlet
       first = false;
     }
     redirect.append( "&authenticate=" + ( goodLogin? "Y" : "N" ) );
+    log.info("redirect URL = " + redirect);
 
     return redirect.toString();
   }

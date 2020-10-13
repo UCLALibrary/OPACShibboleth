@@ -40,46 +40,35 @@ public class ShibRouterServlet
 
     log = Logger.getLogger( ShibRouterServlet.class );
 
-    log.info( "Shib login request from " + 
-              ( request.getHeader( "CLIENTIP" ) != null? 
-                request.getHeader( "CLIENTIP" ) : 
-                request.getRemoteAddr() ) );
-
-    storeRequestInfo( request, response );
+    storeRequestInfo( request, response, log );
     response.sendRedirect( "https://webservices.library.ucla.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fwebservices.library.ucla.edu%2Fcatalog%2Floginhandler" );
     //response.sendRedirect( "https://webservices-test.library.ucla.edu/Shibboleth.sso/Login?target=https%3A%2F%2Fwebservices-test.library.ucla.edu%2Fcatalog%2Floginhandler" );
   }
 
   private void storeRequestInfo( HttpServletRequest request, 
-                                 HttpServletResponse response )
+                                 HttpServletResponse response,
+                                 Logger log )
   {
     String url;
     url = request.getHeader( "REFERER" );
+    log.info("URL from referer = " + url);
 
     if ( url == null || url.equals( "" ) || url.length() == 0 )
       url = request.getRequestURL().toString();
-
+    
+    log.info("Final URL = " + url);
     response.addCookie( new Cookie( "queryString", 
                                     request.getQueryString() ) );
     response.addCookie( new Cookie( "userPID", 
                                     findPID( request.getQueryString() ) ) );
-/*
- * extend substring to include /cgi-bin [+8] or /vwebv {+6]
- * */
-    if ( url.contains( "/cgi" ) )
-      response.addCookie( new Cookie( "caller", 
-                                      url.substring( 0, url.indexOf( "/cgi" ) + 8 ) ) );
-    else if ( url.contains( "/vwebv" ) )
+    if ( url.contains( "/vwebv" ) )
       response.addCookie( new Cookie( "caller", 
                                       url.substring( 0, url.indexOf( "/vwebv" ) + 6 ) ) );
     else
-      response.addCookie( new Cookie( "caller", null ) );
+      response.addCookie( new Cookie( "caller", url.concat("vwebv") ) );
 
     response.addCookie( new Cookie( "catalog", determineCatalog( url ) ) );
-    /*if ( url.contains( "/cgi" ) )
-      response.addCookie( new Cookie( "dbsource", "db.source.prod" ) );
-    else if ( url.contains( "/vwebv" ) )
-      response.addCookie( new Cookie( "dbsource", "db.source.test" ) );*/
+
     if ( url.contains("test") )
       response.addCookie( new Cookie( "dbsource", "db.source.test" ) );
     else
